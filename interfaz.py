@@ -1,6 +1,8 @@
 import streamlit as st
 from openai import OpenAI
 import pandas as pd
+import os
+
 
 # Estilos CSS para los mensajes
 st.markdown(
@@ -20,7 +22,7 @@ st.markdown(
 )
 
 # 🔑 API
-client = OpenAI(api_key="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")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.title("Asistente Bursátil")
 
