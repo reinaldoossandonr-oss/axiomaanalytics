@@ -20,7 +20,7 @@ st.markdown(
 )
 
 # 🔑 API
-client = OpenAI(api_key="TU_API_KEY_AQUI")
+client = OpenAI(api_key="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")
 
 st.title("Asistente Bursátil")
 
