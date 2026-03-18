@@ -3,7 +3,6 @@ from openai import OpenAI
 import pandas as pd
 import os
 
-
 # Estilos CSS para los mensajes
 st.markdown(
     """
