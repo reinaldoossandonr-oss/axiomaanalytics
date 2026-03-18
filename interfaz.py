@@ -5,7 +5,7 @@ import os
 
 
 # 🔹 VERIFICACIÓN TEMPORAL
-st.write(os.getenv("OPENAI_API_KEY"))  # solo para debug, luego lo borras
+#st.write(os.getenv("OPENAI_API_KEY"))  # solo para debug, luego lo borras
 
 # Estilos CSS para los mensajes
 st.markdown(
@@ -30,7 +30,7 @@ st.markdown(
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Opcional: debug temporal
-st.write(repr(os.getenv("OPENAI_API_KEY")))  # muestra los caracteres invisibles
+#st.write(repr(os.getenv("OPENAI_API_KEY")))  # muestra los caracteres invisibles
 
 st.title("Asistente Bursátil")
 
