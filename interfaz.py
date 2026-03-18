@@ -3,6 +3,10 @@ from openai import OpenAI
 import pandas as pd
 import os
 
+
+# 🔹 VERIFICACIÓN TEMPORAL
+st.write(os.getenv("OPENAI_API_KEY"))  # solo para debug, luego lo borras
+
 # Estilos CSS para los mensajes
 st.markdown(
     """
