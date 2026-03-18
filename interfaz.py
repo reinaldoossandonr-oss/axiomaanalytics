@@ -25,6 +25,7 @@ st.markdown(
 )
 
 # 🔑 API
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.title("Asistente Bursátil")
