@@ -7,24 +7,6 @@ import os
 # 🔹 VERIFICACIÓN TEMPORAL
 #st.write(os.getenv("OPENAI_API_KEY"))  # solo para debug, luego lo borras
 
-# Estilos CSS para cambiar solo colores de las burbujas de chat
-st.markdown(
-    """
-    <style>
-    /* Mensajes del usuario */
-    .user-message {
-        background-color: #f56565 !important;  /* rojo suave */
-        color: white !important;
-    }
-    /* Mensajes del asistente */
-    .assistant-message {
-        background-color: #ecc94b !important;  /* amarillo */
-        color: black !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 # 🔑 API
 
@@ -46,17 +28,20 @@ if "messages" not in st.session_state:
 
 # Mostrar historial
 for message in st.session_state.messages:
-    if message["role"] == "user":
-        st.markdown(f'<div class="user-message">{message["content"]}</div>', unsafe_allow_html=True)
-    else:
-        st.markdown(f'<div class="assistant-message">{message["content"]}</div>', unsafe_allow_html=True)
+    with st.chat_message(
+        message["role"],
+        avatar="🧑" if message["role"] == "user" else "🤖"
+    ):
+        st.markdown(message["content"])
 
 # 💬 Input usuario
 user_input = st.chat_input("Haz tu pregunta sobre los datos")
 
 if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
-    st.markdown(f'<div class="user-message">{user_input}</div>', unsafe_allow_html=True)
+    
+    with st.chat_message("user", avatar="🧑"):
+        st.markdown(user_input)
 
     # 🔹 Preparar prompt
     data_text = data.to_string(index=False)
@@ -84,4 +69,6 @@ Instrucciones:
 
     respuesta = response.choices[0].message.content
     st.session_state.messages.append({"role": "assistant", "content": respuesta})
-    st.markdown(f'<div class="assistant-message">{respuesta}</div>', unsafe_allow_html=True)
+
+    with st.chat_message("assistant", avatar="🤖"):
+        st.markdown(respuesta)
