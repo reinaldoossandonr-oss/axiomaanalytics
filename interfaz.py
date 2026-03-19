@@ -7,16 +7,18 @@ import os
 # 🔹 VERIFICACIÓN TEMPORAL
 #st.write(os.getenv("OPENAI_API_KEY"))  # solo para debug, luego lo borras
 
-# Estilos CSS para los mensajes
+# Estilos CSS para cambiar solo colores de las burbujas de chat
 st.markdown(
     """
     <style>
+    /* Mensajes del usuario */
     .user-message {
-        background-color: #f56565 !important;
+        background-color: #f56565 !important;  /* rojo suave */
         color: white !important;
     }
+    /* Mensajes del asistente */
     .assistant-message {
-        background-color: #ecc94b !important;
+        background-color: #ecc94b !important;  /* amarillo */
         color: black !important;
     }
     </style>
