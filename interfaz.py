@@ -51,10 +51,6 @@ Tengo los siguientes datos:
 
 Pregunta: {user_input}
 
-Instrucciones:
-- Calcula rendimiento y volatilidad si aplica
-- Identifica el activo más rentable y el más riesgoso
-- Devuelve una tabla en formato texto separada con |
 """
 
     # 🤖 Llamada a GPT
